@@ -1,6 +1,4 @@
-# 非光滑凸优化算法库 (FNPJ)
-
-本仓库实现了五种代表性的非光滑凸优化算法，为解决各种凸优化问题提供了完整的工具集。
+# 非光滑凸优化算法库
 
 ## 算法概览
 
@@ -171,30 +169,6 @@ print(f"迭代次数: {result['n_iter']}")
 print(f"运行时间: {result['time']:.3f}秒")
 ```
 
-## 算法比较
-
-使用内置的比较框架：
-
-```python
-from comparison import AlgorithmComparison, quick_comparison
-
-# 快速比较多种算法
-results = quick_comparison(problem, x0, max_iter=500)
-
-# 创建比较实例进行详细分析
-comparison = AlgorithmComparison()
-
-# 运行比较
-results = comparison.compare_algorithms(problem, x0)
-
-# 可视化结果
-comparison.plot_convergence_comparison(results)
-comparison.plot_performance_comparison(results)
-
-# 生成详细报告
-comparison.generate_report(results)
-```
-
 ## 可视化功能
 
 项目提供了丰富的可视化工具：
@@ -224,38 +198,6 @@ plot_sparsity_pattern(result['x'], title="L1正则化解的稀疏模式")
 - ✅ **算法比较框架**: 自动化的多算法性能比较
 - ✅ **可视化支持**: 内置多种图表和动画功能
 - ✅ **中文文档和注释**: 所有输出和文档都支持中文
-
-## 算法选择指南
-
-### 何时使用次梯度法
-
-- 问题结构简单，只需要粗略解
-- 内存严格受限
-- 需要概念验证或基准比较
-
-### 何时使用近端梯度法
-
-- 复合问题 f(x) + g(x)，其中g有易计算的近端算子
-- 需要平衡精度和效率
-- 机器学习中的正则化问题
-
-### 何时使用束方法
-
-- 需要高精度解
-- 问题规模中等
-- 可以承受较高的计算成本
-
-### 何时使用切割平面法
-
-- 理论研究和分析
-- 特定的凸优化问题
-- 需要理解问题的几何结构
-
-### 何时使用分裂方法
-
-- 大规模问题
-- 可以分解为简单子问题
-- 需要并行化处理
 
 ## 示例文件
 
